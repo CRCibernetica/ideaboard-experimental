@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Ideaboard Flasher & Terminal</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Add CryptoJS for MD5 hashing (must load before script.js) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+</head>
+<body>
+    <main>
+        <h1>Ideaboard Flasher & Terminal</h1>
+        <div id="instructions">
+            <ol>
+                <li>Plug the Ideaboard into a USB port.</li>
+                <li>Click Connect and select the correct serial port. 
+                    <a href="#" id="noDeviceLink">No device found?</a>
+                    <div id="driverInfo" style="display: none; margin-top: 10px;">
+                        Put the board into bootloader mode by holding the BOOT button while pressing the RST button.<br>
+                        Try refreshing this page.<br>
+                        If you are missing the drivers for your board.<br>
+                        Here is a link to the CH340 drivers used by the Ideaboard: 
+                        <a href="https://github.com/nodemcu/nodemcu-devkit/tree/master/Drivers" target="_blank">CH340 Drivers</a>
+                    </div>
+                </li>
+                <li>Click Program to flash the firmware.</li>
+                <li>Click Terminal, then reset your device to view the serial output.</li>
+            </ol>
+        </div>
+        <header>
+            <button id="butConnect">Connect</button>
+            <select id="firmwareSelect">
+                <option value="">Select Firmware</option>
+            </select>
+            <button id="butProgram" disabled>Program</button>
+            <button id="butTerminal" disabled>Terminal</button>
+        </header>
+        <div id="notSupported">
+            Sorry, Web Serial is not supported. Use Chrome 89 or later.
+        </div>
+        <div id="log"></div>
+    </main>
+    <!-- Link to external JavaScript -->
+    <script type="module" src="script.js"></script>
+</body>
+</html>
